@@ -1,0 +1,48 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: white;
+  }
+
+.publication-title-section {
+  background-color: #4A90E2; /* Light blue background */
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+  padding: 10px; /* Retain the padding for better visibility */
+}
+
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.wide-figure {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wide-figure img {
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  font-size: 0.8em; /* Adjust this value as needed */
+}
+
+.footer .content p {
+  font-size: 0.8em; /* Adjust the size as needed */
+}

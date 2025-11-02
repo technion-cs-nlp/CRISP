@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="CRISP: Persistent Concept Unlearning via Sparse Autoencoders">
+  <meta property="og:title" content="CRISP: Persistent Concept Unlearning via Sparse Autoencoders"/>
+  <meta property="og:description" content="CRISP is a parameter-efficient method for persistent concept unlearning in large language models using sparse autoencoders."/>
+  <meta property="og:url" content="https://tomertech.github.io/CRISP-SAE-Web/"/>
+  <meta property="og:image" content="static/images/CRISP_SAE_banner.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="CRISP: Persistent Concept Unlearning via Sparse Autoencoders">
+  <meta name="twitter:description" content="CRISP achieves persistent unlearning in large language models via sparse autoencoders, outperforming prior methods on safety-critical benchmarks.">
+  <meta name="twitter:image" content="static/images/CRISP_SAE_banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="keywords" content="language models, unlearning, interpretability, sparse autoencoders, safety, alignment">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CRISP: Persistent Concept Unlearning via Sparse Autoencoders</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+<!-- Title Section -->
+<section class="hero publication-title-section" style="background-color: #4071a3;"> <!-- Changed background color to a slightly lighter blue -->
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CRISP: Persistent Concept Unlearning via Sparse Autoencoders</h1>
+          <div class="is-size-5 publication-authors" style="color: #000000 !important;"> <!-- Ensured text color is black -->
+            <span class="author-block">
+              <a href="https://tomerashuach.github.io/" target="_blank">Tomer Ashuach</a>,</span>
+            <span class="author-block">
+              <a href="https://danaarad.github.io/" target="_blank">Dana Arad</a>,</span>
+            <span class="author-block">
+              <a href="https://aaronmueller.github.io/" target="_blank">Aaron Mueller</a>,</span>
+            <span class="author-block">
+              <a href="https://mttk.github.io/" target="_blank">Martin Tutek</a>,</span>
+            <span class="author-block">
+              <a href="https://belinkov.com/" target="_blank">Yonatan Belinkov</a>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Technion – Israel Institute of Technology</span>,
+            <span class="author-block">Boston University</span>,
+            <span class="author-block">University of Zagreb</span>
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2508.13650" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/tomerashuach/CRISP" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2508.13650" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            As large language models (LLMs) are increasingly deployed in real-world applications, the need to selectively remove unwanted knowledge while preserving model utility has become paramount. We introduce <strong>CRISP</strong>, a parameter-efficient method for <strong>persistent concept unlearning</strong> via sparse autoencoders (SAEs). CRISP automatically identifies salient SAE features activated by harmful or sensitive knowledge and suppresses their activations through fine-tuning, ensuring permanent removal rather than inference-time control. Experiments on two open-weight LLMs show that CRISP achieves state-of-the-art unlearning performance on safety-critical benchmarks while preserving fluency and benign knowledge. Feature-level analyses further demonstrate that CRISP disentangles and suppresses target features with high semantic precision, maintaining coherent text generation and minimal collateral forgetting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Figure Overview -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <figure class="wide-figure">
+          <img src="static/images/method-main.png" alt="CRISP method diagram">
+          <figcaption>Overview of CRISP: (1) We identify features that are frequently and strongly activated by the target corpus—but not by the benign corpus—using pre-trained sparse autoencoders (SAEs). (2) We then fine-tune the model to suppress these features on the target corpus, while preserving their activations on the benign corpus.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Motivation -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large language models often encode sensitive or harmful knowledge that must be removed after training for reasons such as safety, privacy, or copyright compliance. Existing weight-editing approaches either over-edit, damaging related but benign knowledge, or perform shallow inference-time interventions that do not persist. Sparse autoencoders (SAEs) provide a principled way to identify monosemantic features aligned with interpretable concepts, enabling more precise and interpretable interventions.
+          </p>
+          <p>
+            <strong>CRISP</strong> leverages SAEs for <em>persistent, fine-grained unlearning</em> by identifying features specific to the target concept and suppressing their activations through lightweight fine-tuning. This approach yields both robustness to white-box access and improved retention of general and in-domain capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p><strong>CRISP</strong> operates in two key phases: feature selection and model optimization.</p>
+          <p><strong>1. Feature Selection:</strong> Using pre-trained SAEs, CRISP computes activation statistics over a target corpus (harmful knowledge) and a retain corpus (benign knowledge). It identifies salient features with high activation frequency and relative activation ratios on the target set, filtering them by significance thresholds.</p>
+          <p><strong>2. Model Optimization:</strong> CRISP fine-tunes the model using LoRA adapters to suppress the activations of selected SAE features on the target corpus while preserving the original hidden representations on the retain set. The total loss combines three objectives: unlearning, retention, and coherence, balancing concept removal with fluency preservation.</p>
+          <p>The result is a <em>persistent parameter edit</em>—unlike inference-time steering, the model’s parameters are updated to ensure lasting unlearning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiments -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Setup</h2>
+        <div class="content has-text-justified">
+          <p>We evaluate CRISP on the <strong><a href="https://www.wmdp.ai/" target="_blank">WMDP benchmark</a></strong> (Li et al., 2024), focusing on two domains:</p>
+          <ul style="text-align: left; margin-left: 40px;">
+            <li><strong>Biosecurity:</strong> Removal of expert-level virology knowledge while retaining general biology.</li>
+            <li><strong>Cybersecurity:</strong> Removal of harmful cybersecurity instructions while retaining general computer science.</li>
+          </ul>
+          <p>Experiments were conducted on <strong>Llama-3.1-8B</strong> and <strong>Gemma-2-2B</strong> models, using publicly available SAEs from LlamaScope and GemmaScope. Baselines include <strong>RMU</strong> (Li et al., 2024) and <strong>ELM</strong> (Gandikota et al., 2024). Evaluation covers unlearning accuracy, retention, MMLU performance, fluency, and concept coherence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p><strong>CRISP</strong> demonstrates superior performance in concept unlearning, achieving a balanced trade-off between unlearning efficacy and retention of general and domain-specific knowledge. CRISP consistently outperforms baseline methods, maintaining fluency and coherence in generated text while effectively removing harmful concepts. The method achieves Pareto-dominant results, excelling in unlearning while preserving benign knowledge and general model utility.</p>
+          <figure class="wide-figure">
+            <img src="static/images/llama_bio_tradeoff_cloud.png" alt="Quantitative results table">
+            <figcaption>CRISP consistently achieves the best overall performance across unlearning, retention, and fluency metrics on the WMDP-Bio dataset using the Llama-3.1-8B model.</figcaption>
+          </figure>
+          <figure class="wide-figure">
+            <img src="static/images/gemma_bio_tradeoff_cloud.png" alt="Quantitative results table">
+            <figcaption>CRISP consistently achieves the best overall performance across unlearning, retention, and fluency metrics on the WMDP-Bio dataset using the Gemma-2-2B model.</figcaption>
+          </figure>
+          <p>Qualitative analysis highlights CRISP’s ability to generate coherent and contextually appropriate responses, avoiding the fluency degradation and off-topic drifts observed in baseline methods.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Analysis -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Feature Analysis</h2>
+        <div class="content has-text-justified">
+          <p>
+            CRISP’s feature analysis reveals its precision in targeting harmful concepts while preserving benign and shared features. By focusing on salient features in specific layers of the models, CRISP effectively disentangles harmful activations from benign ones. This targeted suppression minimizes collateral forgetting and ensures semantic consistency across layers.
+          </p>
+          <figure class="wide-figure">
+            <img src="static/images/gemma_bio_layer_14_features_scatter_all_types.png" alt="Gemma Bio Layer 14 Features">
+            <figcaption>Feature scatter plot for Gemma-2-2B Bio Layer 14, showing disentangled and suppressed harmful features.</figcaption>
+          </figure>
+          <figure class="wide-figure">
+            <img src="static/images/llama_bio_layer_24_features_scatter_all_types.png" alt="Llama Bio Layer 24 Features">
+            <figcaption>Feature scatter plot for Llama-3.1-8B Bio Layer 24, showing disentangled and suppressed harmful features.</figcaption>
+          </figure>
+          <p>
+            The method’s ability to isolate and suppress harmful features while maintaining benign knowledge underscores its interpretability and robustness. CRISP’s selective approach ensures minimal impact on general model capabilities, highlighting its effectiveness in persistent concept unlearning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
