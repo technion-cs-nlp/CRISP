@@ -3,6 +3,20 @@ body {
   background-color: white;
   }
 
+/* Hide the scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Add vertical space after university names */
+.publication-authors {
+  margin-bottom: 1.5rem; /* Adjust spacing as needed */
+}
+
 .publication-title-section {
   background-color: #4A90E2; /* Light blue background */
 }
