@@ -1,0 +1,17 @@
+torch==2.9.1
+transformers==4.57.1
+accelerate==1.11.0
+peft==0.18.0
+datasets==3.6.0
+scikit-learn==1.7.2
+scipy==1.16.3
+numpy==2.3.5
+pandas==2.3.3
+tqdm==4.67.1
+safetensors==0.6.2
+tokenizers==0.22.1
+pyarrow==22.0.0
+regex==2025.11.3
+plotly==6.5.0
+natsort==8.4.0
+simple_parsing==0.1.7
